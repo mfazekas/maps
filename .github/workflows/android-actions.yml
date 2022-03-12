@@ -20,6 +20,7 @@ on:
 jobs:
   build_example:
     runs-on: ubuntu-latest
+    if:  ${{ inputs.MAP_IMPL == 'maplibre' || (secrets.MAPBOX_ACCESS_TOKEN != null && secrets.MAPBOX_DOWNLOAD_TOKEN != null) }} 
     steps:
       - name: Checkout
         uses: actions/checkout@v3

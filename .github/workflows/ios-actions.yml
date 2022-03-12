@@ -20,6 +20,7 @@ on:
 jobs:
   build:
     runs-on: macos-latest
+    if:  ${{ inputs.MAP_IMPL == 'maplibre' || (secrets.MAPBOX_ACCESS_TOKEN != null && secrets.MAPBOX_DOWNLOAD_TOKEN != null) }} 
     timeout-minutes: 25
 
     defaults:
